@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="display-4">當沖計算機</h1>
+
+        <!-- 平盤， 英文叫unchanged. (簡寫unch -->
+        <div class="form-group row">
+            <label for="unchInput" class="col-sm-2 col-form-label">Step 1 : 請輸入平盤價</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="number" id="unchInput" min="1" max="9999" step="0.5"
+                    placeholder="請輸入平盤價">
+            </div>
+        </div>
+
+        <!-- 開盤價：opening price -->
+        <div class="form-group row">
+            <label for="opInput" class="col-sm-2 col-form-label">Step 2 : 請輸入開盤價</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="number" id="opInput" min="1" max="9999" step="0.5"
+                    placeholder="請輸入開盤價">
+                <small class="form-text text-muted"><span class="badge badge-info">Info</span> 綠燈 : 開在 3% 內 ;
+                    黃燈 : 開在 3~5% 內 ;
+                    紅燈 : 不建議沖</small>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="buyInput" class="col-sm-2 col-form-label">Step 3 : 請輸入買價</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="number" id="buyInput" min="1" max="9999" step="0.5"
+                    placeholder="請輸入買價">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="sellInput" class="col-sm-2 col-form-label">Step 4 : 請輸入賣價</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="number" id="sellInput" min="1" max="9999" step="0.5"
+                    placeholder="請輸入賣價">
+                <small class="form-text text-muted" style="color: red;"><span class="badge badge-info">Info</span>
+                    建議最低賣價 =
+                    <span id="minSellPrice"></span></small>
+                <small class="form-text text-muted"><span class="badge badge-info">Info</span> 買價 + 2% = <span
+                        id="twoPercent"></span></small>
+
+                <hr>
+
+                <p>買進手續費 = <span id="buyFee"></span></p>
+                <p>賣出手續費 = <span id="sellFee"></span></p>
+                <p>賣出交易稅 = <span id="sellTax"></span></p>
+                <p>參考損益 = <span id="net"></span><span id="result"
+                        style="background-color: yellow; color: red; font-weight: bold; font-size: large;"></span></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TODO: 這邊需要補上 bootstrat 那一大串 script 嗎？ -->
+    <script src="./main.js"></script>
+</body>
+
+</html>
