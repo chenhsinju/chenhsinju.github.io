@@ -50,7 +50,8 @@ sellInput.addEventListener("input", function () {
     const buyFeeCal = Math.floor(buy * 1000 * 0.1425 / 100);
     const sellFeeCal = Math.floor(sell * 1000 * 0.1425 / 100);
     const sellTaxCal = Math.floor(sell * 1000 * 0.15 / 100);
-    let netCal = (sell - buy) * 1000 - buyFeeCal - sellFeeCal - sellTaxCal;
+    // (注意：這還不是最佳方法)把需要計算的數字乘以10的n次方，讓數值都變為整數，計算完後再除以10的n次方，這樣就不會出現浮點數精度丟失問題
+    let netCal = sell * 1000 - buy * 1000 - buyFeeCal - sellFeeCal - sellTaxCal;
     // 將 netCal 轉成 string , 然後加上千分位(如: 1000 -> 1,000)
     netCal = netCal.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     if (sell < minSellPriceCal) {
